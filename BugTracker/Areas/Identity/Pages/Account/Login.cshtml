@@ -1,0 +1,196 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "/Views/Shared/_LoginLayout.cshtml";
+}
+
+@*<div class="form-wrapper">
+    <div class="container">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <div class="d-block d-lg-none text-center text-lg-start">
+                                <img width="120" src="../../assets/images/logo.svg" alt="logo">
+                            </div>
+                            <div class="my-5 text-center text-lg-start">
+                                <h1 class="display-8">Sign In</h1>
+                                <p class="text-muted">Sign in to Vetra to continue</p>
+                            </div>
+                            <form class="mb-5">
+                                <div class="mb-3">
+                                    <input type="email" asp-for=" Input.Email" class="form-control" placeholder="Enter email" autofocus
+                                           required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" asp-for="Input.Password" class="form-control" placeholder="Enter password"
+                                           required>
+                                </div>
+                                <div class="text-center text-lg-start">
+                                    <p class="small">Can't access your account? <a href="#">Reset your password now</a>.</p>
+                                    <button class="btn btn-primary">Sign In</button>
+                                </div>
+                            </form>
+                            
+                            <p class="text-center d-block d-lg-none mt-5 mt-lg-0">
+                                Don't have an account? <a href="#">Sign up</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-none d-lg-flex border-start align-items-center justify-content-between flex-column text-center">
+                    <div class="logo">
+                        <img width="120" src="../../assets/images/logo.svg" alt="logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold">Welcome to Vetra!</h3>
+                        <p class="lead my-5">If you don't have an account, would you like to register right now?</p>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+    <!-- page-wrapper Start-->
+    <section class="form-wrapper">
+        <div class="container">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col">
+                        <div class="row">
+                            <form class="theme-form login-form" id="account" method="post">
+                                <h4>Login</h4>
+                                <h6>Welcome back! Log in to your account.</h6>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="icon-email"></i></span>
+                                        <input class="form-control" asp-for=" Input.Email" required="" placeholder="Test@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="icon-lock"></i></span>
+                                        <input class="form-control" asp-for="Input.Password" required="" placeholder="*********">
+                                        <div class="show-hide"><span class="show"></span></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+                                </div>
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a>
+                            </form>
+                            <div class="mb-1 text-center">
+                                <form class="" id="account" method="post">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-12 btn-block">
+                                                <button type="submit" style="width:inherit;height:min-content" class="btn btn-primary p-10 m-2" name="demoEmail" value="DemoAdminEmail">Demo Admin</button>
+                                                <button type="submit" style="width:inherit;height:min-content" class="btn btn-primary p-10 m-2" name="demoEmail" value="DemoPMEmail">Demo PM</button>
+                                                <button type="submit" style="width:inherit;height:min-content" class="btn btn-primary p-10 m-2" name="demoEmail" value="DemoDevEmail">Demo Developer</button>
+                                                <button type="submit" style="width:inherit;height:min-content" class="btn btn-primary p-10 m-2" name="demoEmail" value="DemoSubEmail">Demo Submitter</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- page-wrapper end-->
+   
+
+@*<div class="row">
+        <div class="col-md-4">
+            <section>
+                <form id="account" method="post">
+                    <h4>Use a local account to log in.</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe">
+                                <input asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        </p>
+                        <p>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+            <section>
+                <h4>Use another service to log in.</h4>
+                <hr />
+                @{
+                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                    {
+                        <div>
+                            <p>
+                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                for details on setting up this ASP.NET application to support logging in via external services.
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins)
+                                    {
+                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                }
+            </section>
+        </div>
+    </div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
